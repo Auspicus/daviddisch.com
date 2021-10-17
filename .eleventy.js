@@ -4,6 +4,7 @@ const CleanCSS = require('clean-css')
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('img')
   eleventyConfig.addPassthroughCopy('css')
+  eleventyConfig.addPassthroughCopy('_redirects')
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addFilter('cssmin', (code) => {
     return new CleanCSS({
