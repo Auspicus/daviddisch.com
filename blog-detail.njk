@@ -1,0 +1,18 @@
+---
+layout: layouts/blog-detail.njk
+pagination:
+  data: blogs
+  size: 1
+  alias: blog
+permalink: "{{ blog.path }}/"
+title: "{{ blog.title }}"
+templateClass: template-blog-detail
+---
+<article>
+  <h1>{{ blog.title }}</h1>
+  <div class="content">
+    <p>
+      {{ blog.body | safe }}
+    </p>
+  </div>
+</article>

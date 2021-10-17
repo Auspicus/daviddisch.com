@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+title: Blog
+permalink: /blog/
+templateClass: page-blog
+eleventyNavigation:
+  key: ls -la
+  order: 2
+---
+<h1 class="page-title">Blog</h1>
+
+<ul class="reset-list">
+{% for blog in blogs %}
+  <li>
+    <a href="{{ blog.path }}" class="reset-link blog-teaser">
+      <h2 class="blog-teaser__title">{{ blog.title }}</h2>
+    </a>
+  </li>
+{% endfor %}
+</ul>
