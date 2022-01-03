@@ -4,9 +4,10 @@ pagination:
   data: blogs
   size: 1
   alias: blog
-permalink: "{{ blog.path }}/"
-title: "{{ blog.title }}"
 templateClass: template-blog-detail
+permalink: "{{ blog.path }}/"
+eleventyComputed:
+  title: "{{ blog.title }}"
 ---
 <article>
   <h1>{{ blog.title }}</h1>
