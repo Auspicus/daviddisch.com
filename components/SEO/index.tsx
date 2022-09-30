@@ -4,8 +4,8 @@ import Head from 'next/head'
 const SEO = ({ title }) => {
   return (
     <Head>
-      <title>{title} - David Disch | Software Engineer</title>
-      <meta name="description" content="Software engineer, surfer, climber, photographer." />
+      <title>{`${title} - David Disch | Software Engineer`}</title>
+      <meta name="description" content="Software engineer, hardware tinkerer, surfer, climber, photographer." />
       <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
     </Head>
   )
