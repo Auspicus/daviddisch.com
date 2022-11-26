@@ -1,43 +1,130 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
-import got from 'got'
+import { Client, isFullBlock, isFullPage } from '@notionhq/client'
 import kebabCase from 'lodash/kebabCase'
-import Layout from '../../components/Layout'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/a11y-light.css'
 
-export default function BlogDetail(blog) {
+import Layout from '../../components/Layout'
+import { ChildPageBlockObjectResponse, GetPageResponse, ListBlockChildrenResponse } from '@notionhq/client/build/src/api-endpoints'
+
+const BlogDetail: NextPage<{
+  title: string,
+  body: string
+}> = ({ title, body }) => {
   return (
-    <Layout title={blog.attributes.title}>
+    <Layout title={title}>
       <article>
-        <h1>{blog.attributes.title}</h1>
-        <div className="content" dangerouslySetInnerHTML={{ __html: blog?.attributes?.body?.value ?? '' }} />
+        <h1>{title}</h1>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: body }}
+        />
       </article>
     </Layout>
   )
 }
 
+export default BlogDetail
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await got.get('https://cms.desarol.com/jsonapi/node/blog?filter[field_author.id]=8675eb72-5125-4369-aa14-b53b20e6b0a5')
-  const data = JSON.parse(response.body)
+  const notion = new Client({
+    auth: process.env.NOTION_API_TOKEN
+  });
+  const response = await notion.blocks.children.list({ block_id: 'ee9ad62cac2347d7b54a7b76760b33d5' });
+  const childPages = response.results.filter(b => {
+    if (!isFullBlock(b)) {
+      return false
+    }
+
+    return b.type === 'child_page'
+  }) as ChildPageBlockObjectResponse[]
 
   return {
-    paths: data.data.map(b => ({
-      params: { slug: kebabCase(b.attributes.title) }
+    paths: childPages.map(p => ({
+      params: { slug: kebabCase(p.child_page.title) }
     })),
-    fallback: 'blocking'
+    fallback: false
   }
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const response = await got.get('https://cms.desarol.com/jsonapi/node/blog?filter[field_author.id]=8675eb72-5125-4369-aa14-b53b20e6b0a5')
-  const data = JSON.parse(response.body)
-  const blogs = data.data
-
-  const blog = blogs.find(b => kebabCase(b.attributes.title) === context.params.slug)
-  if (!blog) {
+  if (Array.isArray(context.params.slug)) {
     return { notFound: true }
   }
 
+  const notion = new Client({
+    auth: process.env.NOTION_API_TOKEN
+  })
+
+  const allBlogs = await notion.blocks.children.list({ block_id: 'ee9ad62cac2347d7b54a7b76760b33d5' });
+  const childPages = allBlogs.results.filter(b => {
+    if (!isFullBlock(b)) {
+      return false
+    }
+
+    return b.type === 'child_page'
+  }) as ChildPageBlockObjectResponse[]
+  const currentPage = childPages.find(p => kebabCase(p.child_page.title) === context.params.slug)
+  if (!currentPage) {
+    return { notFound: true }
+  }
+
+  const [page, blocks] = await Promise.all([
+    notion.pages.retrieve({ page_id: currentPage.id }),
+    notion.blocks.children.list({ block_id: currentPage.id }),
+  ])
+
+  if (!isFullPage(page)) {
+    return { notFound: true }
+  }
+
+  let body = ''
+  blocks.results.forEach(b => {
+    if (!isFullBlock(b)) return
+    
+    switch (b.type) {
+      case 'heading_1':
+        body += `<h1>${b.heading_1.rich_text.map(r => r.plain_text).join('')}</h1>`
+        break
+
+      case 'heading_2':
+        body += `<h2>${b.heading_2.rich_text.map(r => r.plain_text).join('')}</h2>`
+        break
+
+      case 'heading_3':
+        body += `<h3>${b.heading_3.rich_text.map(r => r.plain_text).join('')}</h3>`
+        break
+
+      case 'paragraph':
+        body += `<p>
+          ${b.paragraph.rich_text.map(r => {
+            if (r.annotations.code === true) {
+              return `<code>${r.plain_text}</code>`
+            } else {
+              return r.plain_text
+            }
+          }).join('\r\n')}
+        </p>`
+        break
+
+      case 'code':
+        body += `<pre class="code-block" data-language="${b.code.language}"><code class="language-${b.code.language}">${
+          hljs.highlight(b.code.rich_text.map(t => t.plain_text).join(''), { language: b.code.language }).value
+        }</code></pre>`
+        break
+    }
+  })
+
+  let title = ''
+  if (page.properties.title.type === 'title') {
+    title = page.properties.title.title?.[0]?.plain_text
+  }
+  
   return {
-    props: blog
+    props: {
+      title,
+      body,
+    }
   }
 }
