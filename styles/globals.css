@@ -553,3 +553,11 @@ ul.reset-list {
   line-height: 1.5;
   font-size: 1.1rem;
 }
+
+.open-source-link {
+  margin: 3rem 0;
+}
+
+.open-source-link__title {
+  margin-top: .5rem;
+}
