@@ -561,3 +561,35 @@ ul.reset-list {
 .open-source-link__title {
   margin-top: .5rem;
 }
+
+.code-block {
+  position: relative;
+  padding-top: 2rem;
+}
+
+.code-block::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0;
+  background-color: var(--theme-light-col-acc);
+  font-weight: 700;
+  color: white;
+  padding: .25rem;
+  font-size: .8rem;
+}
+
+.content .code-block {
+  max-width: 100%;
+  overflow-x: scroll;
+  font-size: .9rem;
+}
+
+.content p > code {
+  color: var(--theme-light-col-acc);
+}
+
+.content p {
+  word-wrap: break-word;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}

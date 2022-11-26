@@ -2,41 +2,16 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { Client, isFullBlock, isFullPage } from '@notionhq/client'
 import kebabCase from 'lodash/kebabCase'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/a11y-light.css'
 
 import Layout from '../../components/Layout'
 import { ChildPageBlockObjectResponse, GetPageResponse, ListBlockChildrenResponse } from '@notionhq/client/build/src/api-endpoints'
 
 const BlogDetail: NextPage<{
-  page: GetPageResponse,
-  blocks: ListBlockChildrenResponse
-}> = ({ page, blocks }) => {
-  if (!isFullPage(page)) {
-    return null
-  }
-
-  let title = ''
-  if (page.properties.title.type === 'title') {
-    title = page.properties.title.title?.[0]?.plain_text
-  }
-
-  let body = ''
-  blocks.results.forEach(b => {
-    if (!isFullBlock(b)) return
-    switch (b.type) {
-      case 'paragraph':
-        body += `<p style="${b.paragraph.color}">
-          ${b.paragraph.rich_text.map(r => r.plain_text).join('\r\n')}
-        </p>`
-        break
-
-      case 'code':
-        body += `<pre><code data-language="${b.code.language}">${
-          b.code.rich_text.map(t => t.plain_text).join('')
-        }</code></pre>`
-        break
-    }
-  })
-
+  title: string,
+  body: string
+}> = ({ title, body }) => {
   return (
     <Layout title={title}>
       <article>
@@ -100,10 +75,56 @@ export const getStaticProps: GetStaticProps = async (context) => {
     notion.blocks.children.list({ block_id: currentPage.id }),
   ])
 
+  if (!isFullPage(page)) {
+    return { notFound: true }
+  }
+
+  let body = ''
+  blocks.results.forEach(b => {
+    if (!isFullBlock(b)) return
+    
+    switch (b.type) {
+      case 'heading_1':
+        body += `<h1>${b.heading_1.rich_text.map(r => r.plain_text).join('')}</h1>`
+        break
+
+      case 'heading_2':
+        body += `<h2>${b.heading_2.rich_text.map(r => r.plain_text).join('')}</h2>`
+        break
+
+      case 'heading_3':
+        body += `<h3>${b.heading_3.rich_text.map(r => r.plain_text).join('')}</h3>`
+        break
+
+      case 'paragraph':
+        body += `<p>
+          ${b.paragraph.rich_text.map(r => {
+            if (r.annotations.code === true) {
+              return `<code>${r.plain_text}</code>`
+            } else {
+              return r.plain_text
+            }
+          }).join('\r\n')}
+        </p>`
+        break
+
+      case 'code':
+        body += `<pre class="code-block" data-language="${b.code.language}"><code class="language-${b.code.language}">${
+          hljs.highlight(b.code.rich_text.map(t => t.plain_text).join(''), { language: b.code.language }).value
+        }</code></pre>`
+        break
+    }
+  })
+
+  let title = ''
+  if (page.properties.title.type === 'title') {
+    title = page.properties.title.title?.[0]?.plain_text
+  }
+  
   return {
     props: {
-      page,
-      blocks,
+      title,
+      body,
     }
   }
 }

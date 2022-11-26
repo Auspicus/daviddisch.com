@@ -34,6 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const notion = new Client({
     auth: process.env.NOTION_API_TOKEN
   });
+
   const response = await notion.blocks.children.list({ block_id: 'ee9ad62cac2347d7b54a7b76760b33d5' });
   const childPages = response.results.filter(b => {
     if (!isFullBlock(b)) {
