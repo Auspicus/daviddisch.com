@@ -592,4 +592,26 @@ ul.reset-list {
   word-wrap: break-word;
   font-size: 1.1rem;
   line-height: 1.5;
+
+.profile-card {
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  width: 320px;
+}
+.profile-card .page-subtitle {
+  margin-bottom: 0;
+}
+@media (min-width: 398px) {
+  .profile-card {
+    width: auto;
+  }
+  
+  .profile-card .page-subtitle {
+    margin-bottom: inherit;
+  }
+
+  .profile-card div:nth-child(2) {
+    margin-left: 2rem;
+  }
 }

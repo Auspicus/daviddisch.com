@@ -1,12 +1,28 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import React from "react";
+import Layout from "../components/Layout";
 
 export default function Home() {
   return (
     <Layout title="About">
-      <h1 className="page-title">David Disch</h1>
-      <h2 className="page-subtitle">Software Engineer</h2>
-      <img className="avatar" src="/img/me.jpeg" alt="" />
+      <div className="profile-card">
+        <div>
+          <img
+            className="avatar"
+            src="/img/me.jpeg"
+            alt=""
+          />
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div>
+            <h1 style={{ marginTop: 0 }} className="page-title">David Disch</h1>
+            <h2 className="page-subtitle">Software Engineer</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        react developer by day. rust enthusiast by night. ai dabbler. hardware
+        tinkerer. open source contributor. opinions are my own.
+      </p>
     </Layout>
-  )
+  );
 }
