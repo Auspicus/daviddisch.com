@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://personfromthing.com"
+  to = "https://daviddisch.com"
+  status = 302
+  force = true
