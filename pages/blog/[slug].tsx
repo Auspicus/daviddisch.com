@@ -3,6 +3,7 @@ import React from 'react'
 import { Client, isFullBlock, isFullPage } from '@notionhq/client'
 import kebabCase from 'lodash/kebabCase'
 import hljs from 'highlight.js'
+import axios from 'axios'
 import 'highlight.js/styles/a11y-light.css'
 
 import Layout from '../../components/Layout'
@@ -80,10 +81,25 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   let body = ''
-  blocks.results.forEach(b => {
-    if (!isFullBlock(b)) return
-    
+  for (let b of blocks.results) {
+    if (!isFullBlock(b)) continue
+
     switch (b.type) {
+      case 'image':
+        if (b.image.type === 'file') {
+          const r = await axios.get(b.image.file.url, {
+            responseType: 'arraybuffer'
+          })
+          body += `<img src="${`data:${r.headers['content-type']};base64,${r.data.toString('base64')}`}" />`
+        }
+        if (b.image.type === 'external') {
+          const r = await axios.get(b.image.external.url, {
+            responseType: 'arraybuffer'
+          })
+          body += `<img src="${`data:${r.headers['content-type']};base64,${r.data.toString('base64')}`}}" />`
+        }
+        break
+
       case 'heading_1':
         body += `<h1>${b.heading_1.rich_text.map(r => r.plain_text).join('')}</h1>`
         break
@@ -114,7 +130,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         }</code></pre>`
         break
     }
-  })
+  }
 
   let title = ''
   if (page.properties.title.type === 'title') {
