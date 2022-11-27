@@ -586,6 +586,7 @@ ul.reset-list {
 
 .content p > code {
   color: var(--theme-light-col-acc);
+  font-size: .9rem;
 }
 
 .content p {
