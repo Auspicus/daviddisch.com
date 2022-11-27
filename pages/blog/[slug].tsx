@@ -140,6 +140,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
           ${b.paragraph.rich_text.map(r => {
             if (r.annotations.code === true) {
               return `<code>${r.plain_text}</code>`
+            } else if (r.type === 'text') {
+              if (r.text.link) {
+                return `<a class="reset-link" style="text-decoration: underline;" href="${r.text.link.url}">${r.text.content}</a>`
+              } else {
+                return r.text.content
+              }
             } else {
               return r.plain_text
             }
