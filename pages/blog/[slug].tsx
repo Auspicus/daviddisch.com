@@ -1,13 +1,16 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import fs from 'fs'
+import path from 'path'
+import crypto from 'crypto'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { Client, isFullBlock, isFullPage } from '@notionhq/client'
+import { ChildPageBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import kebabCase from 'lodash/kebabCase'
 import hljs from 'highlight.js'
 import axios from 'axios'
 import 'highlight.js/styles/a11y-light.css'
 
 import Layout from '../../components/Layout'
-import { ChildPageBlockObjectResponse, GetPageResponse, ListBlockChildrenResponse } from '@notionhq/client/build/src/api-endpoints'
 
 const BlogDetail: NextPage<{
   title: string,
@@ -87,16 +90,36 @@ export const getStaticProps: GetStaticProps = async (context) => {
     switch (b.type) {
       case 'image':
         if (b.image.type === 'file') {
+          // Download the image
           const r = await axios.get(b.image.file.url, {
             responseType: 'arraybuffer'
           })
-          body += `<img src="${`data:${r.headers['content-type']};base64,${r.data.toString('base64')}`}" />`
+
+          // Determine where to save the image
+          const cipher = crypto.createHash('md5')
+          const filename = cipher.update(b.image.file.url).digest('base64url')
+          const ext = r.headers['content-type'].replace('image/', '')
+          const filepath = `/img/blog/${filename}.${ext}`
+          await fs.promises.writeFile(path.join(process.cwd(), 'public', filepath), r.data)
+
+          // Add a reference to this image in the body
+          body += `<img src="${filepath}" />`
         }
         if (b.image.type === 'external') {
+          // Download the image
           const r = await axios.get(b.image.external.url, {
             responseType: 'arraybuffer'
           })
-          body += `<img src="${`data:${r.headers['content-type']};base64,${r.data.toString('base64')}`}}" />`
+
+          // Determine where to save the image
+          const cipher = crypto.createHash('md5')
+          const filename = cipher.update(b.image.external.url).digest('base64url')
+          const ext = r.headers['content-type'].replace('image/', '')
+          const filepath = `/img/blog/${filename}.${ext}`
+          await fs.promises.writeFile(path.join(process.cwd(), '../../public', filepath), r.data)
+
+          // Add a reference to this image in the body
+          body += `<img src="${filepath}" />`
         }
         break
 
