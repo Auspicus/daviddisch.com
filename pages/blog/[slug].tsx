@@ -110,7 +110,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
       case 'code':
         body += `<pre class="code-block" data-language="${b.code.language}"><code class="language-${b.code.language}">${
-          hljs.highlight(b.code.rich_text.map(t => t.plain_text).join(''), { language: b.code.language }).value
+          b.code.language === 'plain text'
+            ? b.code.rich_text.map(t => t.plain_text).join('')
+            : hljs.highlight(b.code.rich_text.map(t => t.plain_text).join(''), { language: b.code.language }).value
         }</code></pre>`
         break
     }
