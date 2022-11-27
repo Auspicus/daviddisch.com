@@ -25,7 +25,7 @@ export default function CV({  }) {
           <div></div>
           <div>
             <h1 className="page-title">David Disch</h1>
-            <h2 className="page-subtitle">Curriculum Vitae</h2>
+            <h2 className="page-subtitle">Software Engineer</h2>
           </div>
         </section>
 
