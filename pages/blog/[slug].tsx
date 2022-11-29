@@ -192,10 +192,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     })
 
     // Determine where to save the image
-    const cipher = crypto.createHash('md5')
-    const filename = cipher.update(page.cover.external.url).digest('base64url')
     const ext = r.headers['content-type'].replace('image/', '')
-    const filepath = `/img/blog/${filename}.${ext}`
+    const filepath = `/img/og/${context.params.url}.${ext}`
     await fs.promises.writeFile(path.join(process.cwd(), 'public', filepath), r.data)
     meta.push({ name: 'og:image', content: filepath })
   }
@@ -207,10 +205,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     })
 
     // Determine where to save the image
-    const cipher = crypto.createHash('md5')
-    const filename = cipher.update(page.cover.file.url).digest('base64url')
     const ext = r.headers['content-type'].replace('image/', '')
-    const filepath = `/img/blog/${filename}.${ext}`
+    const filepath = `/img/og/${context.params.url}.${ext}`
     await fs.promises.writeFile(path.join(process.cwd(), 'public', filepath), r.data)
     meta.push({ name: 'og:image', content: filepath })
   }
