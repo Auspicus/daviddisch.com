@@ -193,7 +193,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     // Determine where to save the image
     const ext = r.headers['content-type'].replace('image/', '')
-    const filepath = `/img/og/${context.params.url}.${ext}`
+    const filepath = `/img/og/${context.params.slug}.${ext}`
     await fs.promises.writeFile(path.join(process.cwd(), 'public', filepath), r.data)
     meta.push({ name: 'og:image', content: filepath })
   }
@@ -206,7 +206,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     // Determine where to save the image
     const ext = r.headers['content-type'].replace('image/', '')
-    const filepath = `/img/og/${context.params.url}.${ext}`
+    const filepath = `/img/og/${context.params.slug}.${ext}`
     await fs.promises.writeFile(path.join(process.cwd(), 'public', filepath), r.data)
     meta.push({ name: 'og:image', content: filepath })
   }
