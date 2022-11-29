@@ -8,16 +8,19 @@ import { ChildPageBlockObjectResponse } from '@notionhq/client/build/src/api-end
 import kebabCase from 'lodash/kebabCase'
 import hljs from 'highlight.js'
 import axios from 'axios'
+import { load as loadHtml } from 'cheerio'
 import 'highlight.js/styles/a11y-light.css'
 
+import { Meta } from '../../types'
 import Layout from '../../components/Layout'
 
 const BlogDetail: NextPage<{
   title: string,
-  body: string
-}> = ({ title, body }) => {
+  body: string,
+  meta: Meta[]
+}> = ({ title, body, meta }) => {
   return (
-    <Layout title={title}>
+    <Layout title={title} meta={meta}>
       <article>
         <h1>{title}</h1>
         <div
@@ -61,6 +64,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     auth: process.env.NOTION_API_TOKEN
   })
 
+  // Find the matching page referenced under the root page
   const allBlogs = await notion.blocks.children.list({ block_id: 'ee9ad62cac2347d7b54a7b76760b33d5' });
   const childPages = allBlogs.results.filter(b => {
     if (!isFullBlock(b)) {
@@ -74,6 +78,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return { notFound: true }
   }
 
+  // Fetch the matching page and all of its blocks
   const [page, blocks] = await Promise.all([
     notion.pages.retrieve({ page_id: currentPage.id }),
     notion.blocks.children.list({ block_id: currentPage.id }),
@@ -83,6 +88,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return { notFound: true }
   }
 
+  // Generate body from blocks
   let body = ''
   for (let b of blocks.results) {
     if (!isFullBlock(b)) continue
@@ -165,13 +171,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   let title = ''
   if (page.properties.title.type === 'title') {
-    title = page.properties.title.title?.[0]?.plain_text
+    title = page.properties.title.title?.[0]?.plain_text?.trim() ?? ''
   }
+
+  const meta: Meta[] = []
+  const $ = loadHtml(body, {}, false)
+
+  const firstParagraph = $('p:first').text().trim()
+  meta.push({ name: 'description', content: firstParagraph })
+
+  // Add OG tags
+  meta.push({ name: 'og:title', content: title })
+  meta.push({ name: 'og:description', content: firstParagraph })
   
   return {
     props: {
       title,
       body,
+      meta,
     }
   }
 }

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React from 'react'
+import { Meta } from '../../types'
 import SEO from '../SEO'
 import Github from './github.svg'
 import Twitter from './twitter.svg'
@@ -23,12 +23,12 @@ const socials = [
   }
 ]
 
-const Layout: React.FC<React.PropsWithChildren<{ title: string }>> = ({ children, title }) => {
+const Layout: React.FC<React.PropsWithChildren<{ title: string, meta?: Meta[] }>> = ({ children, title, meta }) => {
   const router = useRouter()
 
   return (
     <>
-      <SEO title={title} />
+      <SEO title={title} meta={meta} />
 
       <header className="max-w-header">
         <nav className="nav">
