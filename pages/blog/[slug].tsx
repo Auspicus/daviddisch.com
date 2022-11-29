@@ -186,7 +186,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   
   // Download cover image to use for OG image
   let coverImage: string | null = null
-  if (page.cover.type === 'external') {
+  if (page?.cover?.type === 'external') {
     coverImage = page.cover.external.url
   }
 
