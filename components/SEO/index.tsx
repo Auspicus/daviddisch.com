@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { Meta } from '../../types'
 
-const SEO: React.FC<{ title: string, meta?: Meta[] }> = ({ title, meta }) => {
+const SEO: React.FC<{ title: string, meta?: Meta[] }> = ({ title, meta = [] }) => {
   if (!meta.some(m => m.name === 'description')) {
     meta.push({ name: 'description', content: 'Software engineer, surfer, climber, photographer.' })
   }
