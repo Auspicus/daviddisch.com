@@ -185,25 +185,22 @@ export const getStaticProps: GetStaticProps = async (context) => {
   meta.push({ name: 'og:description', content: firstParagraph })
   
   // Download cover image to use for OG image
-  let coverImage: string | null = null
   if (page?.cover?.type === 'external') {
-    coverImage = page.cover.external.url
-  }
-
-  if (coverImage !== null) {
     // Download the image
-    const r = await axios.get(coverImage, {
+    const r = await axios.get(page.cover.external.url, {
       responseType: 'arraybuffer'
     })
 
     // Determine where to save the image
     const cipher = crypto.createHash('md5')
-    const filename = cipher.update(coverImage).digest('base64url')
+    const filename = cipher.update(page.cover.external.url).digest('base64url')
     const ext = r.headers['content-type'].replace('image/', '')
     const filepath = `/img/blog/${filename}.${ext}`
     await fs.promises.writeFile(path.join(process.cwd(), '../../public', filepath), r.data)
     meta.push({ name: 'og:image', content: filepath })
   }
+
+  
 
   return {
     props: {
