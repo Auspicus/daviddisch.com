@@ -122,7 +122,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
           const filename = cipher.update(b.image.external.url).digest('base64url')
           const ext = r.headers['content-type'].replace('image/', '')
           const filepath = `/img/blog/${filename}.${ext}`
-          await fs.promises.writeFile(path.join(process.cwd(), '../../public', filepath), r.data)
+          await fs.promises.writeFile(path.join(process.cwd(), 'public', filepath), r.data)
 
           // Add a reference to this image in the body
           body += `<img src="${filepath}" />`
@@ -196,11 +196,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const filename = cipher.update(page.cover.external.url).digest('base64url')
     const ext = r.headers['content-type'].replace('image/', '')
     const filepath = `/img/blog/${filename}.${ext}`
-    await fs.promises.writeFile(path.join(process.cwd(), '../../public', filepath), r.data)
+    await fs.promises.writeFile(path.join(process.cwd(), 'public', filepath), r.data)
     meta.push({ name: 'og:image', content: filepath })
   }
 
-  
+  if (page?.cover?.type === 'file') {
+    // Download the image
+    const r = await axios.get(page.cover.file.url, {
+      responseType: 'arraybuffer'
+    })
+
+    // Determine where to save the image
+    const cipher = crypto.createHash('md5')
+    const filename = cipher.update(page.cover.file.url).digest('base64url')
+    const ext = r.headers['content-type'].replace('image/', '')
+    const filepath = `/img/blog/${filename}.${ext}`
+    await fs.promises.writeFile(path.join(process.cwd(), 'public', filepath), r.data)
+    meta.push({ name: 'og:image', content: filepath })
+  }
 
   return {
     props: {
