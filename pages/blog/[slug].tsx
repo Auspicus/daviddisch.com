@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   // Generate body from blocks
   let body = ''
-  for (let b of blocks.results) {
+  for (let [k, b] of Object.entries(blocks.results)) {
     if (!isFullBlock(b)) continue
 
     switch (b.type) {
@@ -126,6 +126,20 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
           // Add a reference to this image in the body
           body += `<img src="${filepath}" />`
+        }
+        break
+
+      case 'bulleted_list_item':
+        const previousBlock = blocks.results[parseInt(k) - 1]
+        if (!previousBlock || isFullBlock(previousBlock) && previousBlock?.type !== 'bulleted_list_item') {
+          body += '<ul>'
+        }
+
+        body += `<li>${b.bulleted_list_item.rich_text.map(r => r.plain_text).join('')}</li>`
+
+        const nextBlock = blocks.results[parseInt(k) + 1]
+        if (!nextBlock || isFullBlock(nextBlock) && nextBlock?.type !== 'bulleted_list_item') {
+          body += '</ul>'
         }
         break
 

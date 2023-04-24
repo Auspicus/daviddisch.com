@@ -584,15 +584,22 @@ ul.reset-list {
   font-size: .9rem;
 }
 
+.content {
+  word-wrap: break-word;
+  font-size: 1.1rem;
+}
+
 .content p > code {
   color: var(--theme-light-col-acc);
   font-size: .9rem;
 }
 
 .content p {
-  word-wrap: break-word;
-  font-size: 1.1rem;
   line-height: 1.5;
+}
+
+.content ul li {
+  margin: .5rem 0;
 }
 
 .profile-card {
