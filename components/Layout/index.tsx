@@ -9,7 +9,7 @@ const pages = [
   {title: 'whois', url: '/'},
   {title: 'ls -la', url: '/blog'},
   {title: 'git log', url: '/open-source'},
-  {title: 'history', url: '/history'},
+  {title: 'history', url: '/cv'},
 ]
 
 const socials = [

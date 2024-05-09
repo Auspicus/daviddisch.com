@@ -365,12 +365,16 @@ template {
 }
 
 @media print {
-  .page-cv header {
+  header {
     display: none;
   }
 
-  .page-cv footer {
+  footer {
     display: none;
+  }
+
+  a:visited {
+    color: blue;
   }
 }
 
@@ -480,6 +484,10 @@ ul.reset-list {
     text-align: right;
     margin: 0;
   }
+}
+
+.cv-section-item {
+  margin-bottom: 2rem;
 }
 
 .page-cv .page-title {
@@ -627,4 +635,23 @@ ul.reset-list {
 
 .page-cv {
   margin-top: 2rem;
+}
+
+.cv-lang {
+  position: relative;
+  padding: 0.25rem;
+}
+
+.cv-lang-bg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.cv-lang-title {
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
 }

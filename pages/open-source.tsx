@@ -23,7 +23,7 @@ const BlogListing: NextPage = () => {
         .map(c => (
           <li className="open-source-link" key={c.link}>
             <a className="reset-link" style={{ color: c.project.color, fontWeight: 'bold' }} href={c.project.link}>{c.project.name}</a>
-            <span style={{ fontSize: '.8rem', color: 'rgba(0, 0, 0, .6)', marginLeft: '1rem' }}>{c.date.toLocaleDateString()}</span>
+            <span style={{ fontSize: '.8rem', color: 'rgba(0, 0, 0, .6)', marginLeft: '1rem' }}>{c.date.toLocaleDateString('en-AU')}</span>
             <a className="reset-link" href={c.link}>
               <h2 className="open-source-link__title">{c.title}</h2>
             </a>
