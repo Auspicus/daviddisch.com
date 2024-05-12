@@ -5,134 +5,106 @@ const data = {
   experience: [
     {
       company: "March & Ash",
-      position: "Senior Software Engineer - Data",
+      position: "Principle Software Engineer - Data",
       date: "Oct 2023 - Present",
       description:
-        `<ul class="reset-list">
-          <li>Setup multi-cloud environment across AWS and Google Cloud</li>
-          <li>Redesigned data pipeline for better business intelligence</li>
-          <li>Integrated automated tests into CI/CD pipeline</li>
-          <li>Centralized secret management to solidify security posture</li>
-          <li>Reduced monthly cloud services costs by 30%</li>
-          <li>Reduced memory usage of key service by 1000%</li>
-        </ul>`,
+        `<p>Setup multi-cloud environment across AWS and Google Cloud. Conducted organization-wide security audit. <b>Reduced monthly cloud services costs by 30%. Reduced memory usage of key service by 1000%.</b></p>`,
     },
     {
       company: "Container Exchange Services",
       position: "Senior Software Engineer - Customer Experience",
       date: "Jan - Oct 2023",
-      description: `<ul class="reset-list">
-        <li>Setup the company-wide Node infrastructure running in Kubernetes clusters in two separate cloud providers (AWS and Oracle), including instrumentation and database connectivity using JDBC and Postgres client</li>
-        <li>Implemented company-wide OAuth from Auth0 using OpenPolicyAgent (Go) for IDP-independent access rules achieving a unified authorization  strategy with team specific rules</li>
-        <li>Built event-driven, idempotent APIs in Node, Java and Go in the customer domain which integrate with Kafka for queueing, concurrency management and transparency for our data team</li>
-        <li>Integrated HashiCorp Vault into CI/CD process and Kubernetes pods to facilitate credential rotation and least-privilege access control</li>
-        <li>Planned and implemented database migration strategy for zero-downtime deploys and static analysis backed integration guarantees (typed database using Prisma)</li>
-      </ul>`,
+      description: `<p>Worked with DevOps team to setup the org-wide Node infra (instrumentation and database connectivity with JDBC and Postgres to AWS Aurora) running in K8s clusters in both AWS EKS and Oracle OKE.
+      Implemented org-wide OAuth from Auth0 using OpenPolicyAgent (Go) for IDP-independent access rules achieving a unified authorization strategy with service level granularity.
+      Built event-driven, idempotent APIs in Node, Java and Go in the customer domain which integrate with Kafka for queueing, concurrency management and transparency for our data team.
+      Integrated HashiCorp Vault into GitHub actions CI/CD and Kubernetes pods to facilitate credential rotation and least-privilege service access.
+      Planned and implemented database migration strategy for zero-downtime deploys and static analysis backed integration guarantees (typed database using Prisma).</p>`,
     },
     {
       company: "March & Ash",
-      position: "Senior Software Engineer - eCommerce",
+      position: "Principle Software Engineer - eCommerce",
       date: "Dec 2019 - Jan 2023",
       description:
-        `<ul class="reset-list">
-          <li>Optimized page weight and webpack configuration to deliver faster page loads</li>
-          <li>Helped design, test and integrate key features of the website</li>
-          <li>Profiled and optimized Core Web Vitals using Lighthouse</li>
-          <li>Worked in a team to peer review code changes</li>
-          <li>Consulted with Gatsby core team to improve build times</li>
-          <li>Utilized Percy automated visual regression testing</li>
-          <li>Integrated Algolia search as a service into workflow</li>
-          <li>Orchestrated complex checkout process within Redux</li>
-          <li>Released React native app with react-native-web on App Store and Play Store</li>
-          <li>Centralized teams and codebases within a monorepo</li>
-          <li>Developed React components within Gatsby framework</li>
-          <li>Supported scanning products &amp; printing receipts at point-of-sale</li>
-          <li>Built unit and functional tests using Jest</li>
-        </ul>`,
+        `<p>Lead the team responsible for moving an expanding San Diego retailer's operation online.
+        Focused on providing our mostly mobile audience with a performant, industry-leading ordering experience with our Gatsby web app and React Native app published to Google Play Store and Apple App Store.
+        Contributed to the Gatsby framework to integrate with third-party point of sale system.
+        Advocated for a rigorous automated testing approach (using Jest and Percy) of our applications to maximize reliability and visual consistency and minimize downtime.
+        Experimented with react-native-web to unify development teams.</p>
+        `,
     },
     {
       company: "Sonesta Hotels & Resorts",
       position: "Software Engineer - Booking",
       date: "Sep 2016 - Dec 2019",
       description:
-        `<ul class="reset-list">
-          <li>Built and maintained React-based component library for 3rd party booking widget</li>
-          <li>Custom integration with third party CRM and booking management SynXis</li>
-          <li>Developed custom internal Drupal modules in PHP</li>
-          <li>Contributed to the development of open source Drupal modules</li>
-          <li>Integrated complex SOAP and REST APIs from GuestWare and SynXis</li>
-          <li>Handled authentication system for over 200k users and managed database security</li>
-          <li>Maintained extensive legacy code and systems</li>
-          <li>Created REST endpoints for session data and logins</li>
-          <li>Built and maintained local dev environments using Docker</li>
-          <li>Implemented A/B testing using Google Optimize</li>
-          <li>Discussed and PoC A/B testing via VCL configuration</li>
-          <li>Worked with Fastly APIs to configure VCL for Gatsby hosted files</li>
-          <li>Eliminated blockers and received requirements through daily scrum calls</li>
-          <li>Constructed an interactive Google Maps experience</li>
-          <li>Optimized frontend experience by implementing new browser APIs</li>
-          <li>Migrated content and custom Drupal site from D7 to D8</li>
-          <li>Contributed patches to Gatsby core and Drupal modules to enable headless</li>
-      </ul>`,
+        `<p>Migrated 200+ multilingual hotels from Drupal 7 to headless Drupal 8 and Gatsby.
+        Integrated SOAP and REST APIs from Guestware and SynXis for booking management and loyalty program.
+        Created an open-source client library for Guestware in JavaScript.
+        Contributed to open-source Drupal modules including an image optimizing proxy.
+        Handled userbase for over 200k customers.
+        Managed devops for team including local mock environments and Docker images.
+        Implemented and advocated for A/B tested feature development using Fastly VCL for traffic splitting.
+        Discussed A/B testing capabilities of Gatsby framework with core team.
+        </p>`,
     },
   ],
   languages: [
     {
-      name: 'TypeScript',
-      level: 0.9,
+      name: '.ts',
+      level: 1.0,
       color: '#2f74c0',
       textColor: '#fff',
     },
     {
-      name: 'Rust',
-      level: 0.5,
+      name: '.rs',
+      level: 0.4,
       color: '#ce412b',
       textColor: '#fff'
     },
     {
-      name: 'Python',
-      level: 0.3,
+      name: '.py',
+      level: 0.4,
       color: '#3771a2',
       textColor: '#fff'
     },
     {
-      name: 'Go',
-      level: 0.3,
+      name: '.go',
+      level: 0.4,
       color: '#08afd8',
       textColor: '#fff'
     },
     {
-      name: 'Java',
-      level: 0.2,
+      name: '.java',
+      level: 0.3,
       color: '#f89b24',
       textColor: '#fff'
     },
     {
-      name: 'C++',
-      level: 0.15,
+      name: '.cpp',
+      level: 0.3,
       color: '#007cc7',
       textColor: '#fff'
     },
     {
-      name: 'C',
-      level: 0.15,
+      name: '.c',
+      level: 0.3,
       color: '#007cc7',
       textColor: '#fff'
     },
     {
-      name: 'C#',
-      level: 0.1,
+      name: '.cs',
+      level: 0.3,
       color: '#a37add',
       textColor: '#fff',
     },
   ],
   education: [
     {
-      name: "Harvard CS50 Certification",
+      name: "Harvard CS50",
       date: "2018",
     },
     {
-      name: "Acquia Certified Drupal 8 Developer",
+      name: "Acquia D8 Dev",
       date: "2018",
     },
   ],
@@ -142,21 +114,39 @@ export default function CV({}) {
   return (
     <Layout title="CV">
       <div className="page-cv">
-        <section style={{ pageBreakAfter: 'always' }} className="cv-section">
-          <div></div>
+        <section className="cv-section">
           <div>
-            <h1 className="page-title">David Disch</h1>
-            <h2 className="page-subtitle">Software Engineer</h2>
-            <p>
-              <b>GitHub</b> <a href="https://github.com/auspicus">@auspicus</a><br/>
-              <b>Drupal</b> <a href="https://drupal.org/u/edisch">https://drupal.org/u/edisch</a><br/>
-              <b>Open source</b> <a href="https://daviddisch.com/open-source">https://daviddisch.com/open-source</a><br/>
-            </p>
+            <div style={{ textAlign: 'right' }}>
+              <h1 className="page-title">David Disch</h1>
+              <h2 className="page-subtitle">Software Engineer</h2>
+              <p style={{ marginBottom: '2rem' }}>
+                <a href="https://github.com/auspicus">github.com/auspicus</a><br/>
+                <a href="https://drupal.org/u/edisch">drupal.org/u/edisch</a><br/>
+                <a href="https://daviddisch.com/oss">daviddisch.com/oss</a><br/>
+              </p>
+            </div>
+            <div className="cv-education cv-section-content">
+              <h3 className="cv-section-heading sr-only">Education</h3>
+              {data.education.map((e) => (
+                <div key={e.date + e.name} className="cv-section-item">
+                  <h4 className="cv-education-title">{e.name} - <span className="cv-education-date">{e.date}</span></h4>
+                </div>
+              ))}
+            </div>
+            <h3 className="cv-section-heading sr-only">Languages</h3>
+            <div style={{ marginBottom: '2rem' }}></div>
+            <div className="cv-section-content">
+              {data.languages.sort((a, b) => b.level - a.level).map((l) => (
+                <div key={l.name} className="cv-section-item">
+                  <div className="cv-lang">
+                    <div style={{ backgroundColor: l.color, width: `${l.level * 100}%` }} className="cv-lang-bg"></div>
+                    <span style={{ color: l.textColor }} className="cv-lang-title">{l.name}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </section>
 
-        <section style={{ pageBreakAfter: 'always' }} className="cv-section">
-          <h3 className="cv-section-heading">Experience</h3>
           <div className="cv-section-content">
             {data.experience.map((e) => (
               <div key={e.date + e.company} className="cv-section-item">
@@ -167,32 +157,6 @@ export default function CV({}) {
                   className="cv-description"
                   dangerouslySetInnerHTML={{ __html: e.description }}
                 />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section style={{ pageBreakAfter: 'always' }} className="cv-section">
-          <h3 className="cv-section-heading">Languages</h3>
-          <div className="cv-section-content">
-            {data.languages.sort((a, b) => b.level - a.level).map((l) => (
-              <div key={l.name} className="cv-section-item">
-                <div className="cv-lang">
-                  <span style={{ backgroundColor: l.color, width: `${l.level * 100}%` }} className="cv-lang-bg"></span>
-                  <span style={{ color: l.textColor }} className="cv-lang-title">{l.name}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section style={{ pageBreakAfter: 'always' }} className="cv-section">
-          <h3 className="cv-section-heading">Education</h3>
-          <div className="cv-section-content">
-            {data.education.map((e) => (
-              <div key={e.date + e.name} className="cv-section-item">
-                <div className="cv-date">{e.date}</div>
-                <h4 className="cv-title">{e.name}</h4>
               </div>
             ))}
           </div>

@@ -8,7 +8,7 @@ import Twitter from './twitter.svg'
 const pages = [
   {title: 'whois', url: '/'},
   {title: 'ls -la', url: '/blog'},
-  {title: 'git log', url: '/open-source'},
+  {title: 'git log', url: '/oss'},
   {title: 'history', url: '/cv'},
 ]
 
