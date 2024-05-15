@@ -25,7 +25,7 @@ const data = {
       position: "Principle Software Engineer - eCommerce",
       date: "Dec 2019 - Jan 2023",
       description:
-        `<p>Lead the team responsible for moving an expanding San Diego retailer's operation online.
+        `<p>Led the team responsible for moving an expanding San Diego retailer's operation online.
         Focused on providing our mostly mobile audience with a performant, industry-leading ordering experience with our Gatsby web app and React Native app published to Google Play Store and Apple App Store.
         Contributed to the Gatsby framework to integrate with third-party point of sale system.
         Advocated for a rigorous automated testing approach (using Jest and Percy) of our applications to maximize reliability and visual consistency and minimize downtime.
