@@ -5,7 +5,8 @@ const nextConfig = {
   redirects: async () => {
     return [{
       source: '/open-source',
-      destination: '/oss'
+      destination: '/oss',
+      permanent: true,
     }]
   },
   webpack(config) {
