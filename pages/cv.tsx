@@ -5,7 +5,7 @@ const data = {
   experience: [
     {
       company: "March & Ash",
-      position: "Principle Software Engineer - Data",
+      position: "Principal Software Engineer - Data",
       date: "Oct 2023 - Present",
       description:
         `<p>Setup multi-cloud environment across AWS and Google Cloud. Conducted organization-wide security audit. <b>Reduced monthly cloud services costs by 30%. Reduced memory usage of key service by 1000%.</b></p>`,
@@ -22,7 +22,7 @@ const data = {
     },
     {
       company: "March & Ash",
-      position: "Principle Software Engineer - eCommerce",
+      position: "Principal Software Engineer - eCommerce",
       date: "Dec 2019 - Jan 2023",
       description:
         `<p>Led the team responsible for moving an expanding San Diego retailer's operation online.
