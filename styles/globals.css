@@ -511,20 +511,20 @@ ul.reset-list {
 }
 
 .page-cv .cv-title {
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
 .page-cv .cv-subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--theme-light-col-fg-acc);
   margin-top: 0;
   margin-bottom: 0.25rem;
 }
 
 .page-cv .cv-date {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--theme-light-col-fg-acc);
   float: right;
 }
@@ -534,7 +534,7 @@ ul.reset-list {
   padding: .5rem;
   margin-top: 1rem;
   max-width: 480px;
-  font-size: .8rem;
+  font-size: .7rem;
 }
 
 .page-cv .cv-description p {

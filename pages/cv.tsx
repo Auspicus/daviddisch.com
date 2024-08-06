@@ -4,11 +4,18 @@ import Layout from "../components/Layout";
 const data = {
   experience: [
     {
+      company: "JammCard",
+      position: "Consultant",
+      date: "Jan - Feb 2024",
+      description:
+        `Aligned video and audio content using Dejavu algorithm. Re-wrote computationally heavy Dejavu algorithm in Rust, using SIMD instructions where possible, to improve performance. Used Computer Vision & LLM to label video content and build a narrative for music videos.`,
+    },
+    {
       company: "March & Ash",
       position: "Principal Software Engineer - Data",
-      date: "Oct 2023 - Present",
+      date: "Oct 2023 - Aug 2024",
       description:
-        `<p>Setup multi-cloud environment across AWS and Google Cloud. Conducted organization-wide security audit. <b>Reduced monthly cloud services costs by 30%. Reduced memory usage of key service by 1000%.</b></p>`,
+        `<p>Setup multi-cloud environment across AWS and Google Cloud. Conducted organization-wide security audit. <b>Reduced monthly cloud services costs by 30%. Reduced memory usage of key service by 1000%.</b> Built a data pipeline for processing inventory and customer service logs. Utilized LLMs to categorize customer support interactions to identify areas for improvement and show change. Leveraged LLMs to provide tailored responses via customer support channels.</p>`,
     },
     {
       company: "Container Exchange Services",
