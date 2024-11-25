@@ -5,6 +5,16 @@
       "color": "#ffa785",
       "link": "https://github.com/swc-project/swc"
     },
+    "title": "fix(es/minifier): don't reserve identifiers in expressions or patterns",
+    "link": "https://github.com/swc-project/swc/pull/8883",
+    "date": "2024-04-16T10:00:00.000Z"
+  },
+  {
+    "project": {
+      "name": "SWC",
+      "color": "#ffa785",
+      "link": "https://github.com/swc-project/swc"
+    },
     "title": "refactor(es/minifier): Remove mangle.safari10",
     "link": "https://github.com/swc-project/swc/pull/8857",
     "date": "2024-04-16T02:00:00.000Z"
