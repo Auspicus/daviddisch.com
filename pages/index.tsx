@@ -23,6 +23,9 @@ export default function Home() {
         react developer by day. rust enthusiast by night. ai dabbler. hardware
         tinkerer. open source contributor. opinions are my own.
       </p>
+      <p>
+        Apple Contact Key Verification: APKTIDuyQR3wY2TurZO49T4vQ3EVIUGwOV1d21Z7V3dXVIK0_2KQ
+      </p>
     </Layout>
   );
 }
