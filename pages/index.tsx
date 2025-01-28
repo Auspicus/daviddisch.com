@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout title="About">
       <div className="profile-card">
-        <div>
+        <div style={{ marginBottom: '1rem' }}>
           <img
             className="avatar"
             src="/img/me.jpeg"
@@ -19,12 +19,13 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <p>
+      <p style={{ fontSize: '1.25rem' }}>
         react developer by day. rust enthusiast by night. ai dabbler. hardware
         tinkerer. open source contributor. opinions are my own.
       </p>
-      <p>
-        Apple Contact Key Verification: APKTIDuyQR3wY2TurZO49T4vQ3EVIUGwOV1d21Z7V3dXVIK0_2KQ
+      <h4>Apple Contact Key Verification</h4>
+      <p style={{ overflowWrap: 'break-word' }}>
+        <code>APKTIDuyQR3wY2TurZO49T4vQ3EVIUGwOV1d21Z7V3dXVIK0_2KQ</code>
       </p>
     </Layout>
   );
