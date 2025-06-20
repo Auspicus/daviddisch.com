@@ -3,3 +3,13 @@
   to = "https://daviddisch.com"
   status = 302
   force = true
+[[redirects]]
+  from = "https://disch.se"
+  to = "https://daviddisch.com"
+  status = 302
+  force = true
+[[redirects]]
+  from = "https://disch.au"
+  to = "https://daviddisch.com"
+  status = 302
+  force = true
