@@ -4,6 +4,10 @@ import Layout from "../components/Layout";
 const data = {
   experience: [
     {
+      company: "DroneShield",
+      position: "Frontend Software Engineer",
+      date: "Oct 2024 - Present",
+    {
       company: "JammCard",
       position: "Consultant",
       date: "Jan - Feb 2024",
@@ -160,10 +164,12 @@ export default function CV({}) {
                 <div className="cv-date">{e.date}</div>
                 <h4 className="cv-title">{e.company}</h4>
                 <h5 className="cv-subtitle">{e.position}</h5>
-                <div
-                  className="cv-description"
-                  dangerouslySetInnerHTML={{ __html: e.description }}
-                />
+                {e.description && (
+                  <div
+                    className="cv-description"
+                    dangerouslySetInnerHTML={{ __html: e.description }}
+                  />
+                )}
               </div>
             ))}
           </div>
