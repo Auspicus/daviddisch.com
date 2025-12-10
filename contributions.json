@@ -1,6 +1,16 @@
 [
   {
     "project": {
+      "name": "Maplibre",
+      "color": "#82b4fe",
+      "link": "https://github.com/maplibre/maplibre-gl-js"
+    },
+    "title": "Use _getTransformForUpdate for changes to min zoom and max zoom as it may apply changes to zoom",
+    "link": "https://github.com/maplibre/maplibre-gl-js/pull/6781",
+    "date": "2025-12-10T10:00:00.000Z"
+  },
+  {
+    "project": {
       "name": "SWC",
       "color": "#ffa785",
       "link": "https://github.com/swc-project/swc"
