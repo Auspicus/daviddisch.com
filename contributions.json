@@ -1,6 +1,26 @@
 [
   {
     "project": {
+      "name": "Martin",
+      "color": "#5c3fbf",
+      "link": "https://github.com/maplibre/martin"
+    },
+    "title": "fix(perf): Remove FontSources.masks as they were consuming large amounts of memory even when no font sources were set",
+    "link": "https://github.com/maplibre/martin/pull/2519",
+    "date": "2026-01-25T10:00:00.000Z"
+  },
+  {
+    "project": {
+      "name": "Maplibre",
+      "color": "#82b4fe",
+      "link": "https://github.com/maplibre/maplibre-gl-js"
+    },
+    "title": "Fix marker positions not updating when zoom or pitch are changed following a change in constraints",
+    "link": "https://github.com/maplibre/maplibre-gl-js/pull/6926",
+    "date": "2026-01-21T10:00:00.000Z"
+  },
+  {
+    "project": {
       "name": "Maplibre",
       "color": "#82b4fe",
       "link": "https://github.com/maplibre/maplibre-gl-js"
