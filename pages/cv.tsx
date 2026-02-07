@@ -5,7 +5,7 @@ const data = {
   experience: [
     {
       company: "DroneShield",
-      position: "Frontend Software Engineer",
+      position: "Software Engineer",
       date: "Oct 2024 - Present",
     },
     {
