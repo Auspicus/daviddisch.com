@@ -5,6 +5,16 @@
       "color": "#5c3fbf",
       "link": "https://github.com/maplibre/martin"
     },
+    "title": "feat(unstable-cog): Change tile path semantics for COG sources to match other sources, expose COG bounds, center and tileSize in TileJSON",
+    "link": "https://github.com/maplibre/martin/pull/2510",
+    "date": "2026-02-10T10:00:00.000Z"
+  },
+  {
+    "project": {
+      "name": "Martin",
+      "color": "#5c3fbf",
+      "link": "https://github.com/maplibre/martin"
+    },
     "title": "fix(perf): Remove FontSources.masks as they were consuming large amounts of memory even when no font sources were set",
     "link": "https://github.com/maplibre/martin/pull/2519",
     "date": "2026-01-25T10:00:00.000Z"
