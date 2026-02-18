@@ -69,20 +69,20 @@ const data = {
     },
     {
       name: '.rs',
-      level: 0.4,
+      level: 0.6,
       color: '#ce412b',
+      textColor: '#fff'
+    },
+    {
+      name: '.go',
+      level: 0.5,
+      color: '#08afd8',
       textColor: '#fff'
     },
     {
       name: '.py',
       level: 0.4,
       color: '#3771a2',
-      textColor: '#fff'
-    },
-    {
-      name: '.go',
-      level: 0.4,
-      color: '#08afd8',
       textColor: '#fff'
     },
     {
