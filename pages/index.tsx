@@ -20,7 +20,7 @@ export default function Home() {
         </div>
       </div>
       <p style={{ fontSize: '1.25rem' }}>
-        react developer by day. rust enthusiast by night. ai dabbler. hardware
+        software engineer. rust enthusiast. ai dabbler. hardware
         tinkerer. open source contributor. opinions are my own.
       </p>
       <h4>Apple Contact Key Verification</h4>
