@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Open Source - David Disch | Software Engineer{% endblock %}
+
+{% block content %}
+{% set contributions = load_data(path="contributions.json") %}
+{% set sorted = contributions | sort(attribute="date") | reverse %}
+
+<h1 class="page-title">
+  <a class="reset-link" href="https://github.com/pulls?q=is%3Apr+author%3AAuspicus+archived%3Afalse+-org%3Aivcmedia+-org%3Aredlion-rlhc+-org%3AAuspicus+-org%3ATraktek+-org%3AAccruent+-org%3AValerioageno+-org%3ADesarol+-org%3Aif-else-co+-org%3AMMCore+-org%3AJordanDDisch+-org%3AViveelsueno+is%3Apublic+-org%3Arcaracaus+">
+    Open Source Contributions
+  </a>
+</h1>
+
+<ul class="reset-list">
+  {% for c in sorted %}
+  <li class="open-source-link">
+    <a class="reset-link" style="color: {{ c.project.color }}; font-weight: bold;" href="{{ c.project.link }}">{{ c.project.name }}</a>
+    <span style="font-size: .8rem; color: rgba(0, 0, 0, .6); margin-left: 1rem;">{{ c.date | date(format="%d/%m/%Y") }}</span>
+    <a class="reset-link" href="{{ c.link }}">
+      <h2 class="open-source-link__title">{{ c.title }}</h2>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

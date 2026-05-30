@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}CV - David Disch | Software Engineer{% endblock %}
+
+{% block content %}
+<div class="page-cv">
+  <section class="cv-section">
+    <div>
+      <div style="text-align: right;">
+        <h1 class="page-title">David Disch</h1>
+        <h2 class="page-subtitle">Software Engineer</h2>
+        <p style="margin-bottom: 2rem;">
+          <a href="https://github.com/auspicus">github.com/auspicus</a><br/>
+          <a href="https://drupal.org/u/edisch">drupal.org/u/edisch</a><br/>
+          <a href="https://daviddisch.com/oss">daviddisch.com/oss</a><br/>
+        </p>
+      </div>
+
+      <div class="cv-education cv-section-content">
+        <h3 class="cv-section-heading sr-only">Education</h3>
+        <div class="cv-section-item">
+          <h4 class="cv-education-title">Harvard CS50 - <span class="cv-education-date">2018</span></h4>
+        </div>
+        <div class="cv-section-item">
+          <h4 class="cv-education-title">Acquia D8 Dev - <span class="cv-education-date">2018</span></h4>
+        </div>
+      </div>
+
+      <h3 class="cv-section-heading sr-only">Languages</h3>
+      <div style="margin-bottom: 2rem;"></div>
+      <div class="cv-section-content">
+        <div class="cv-section-item">
+          <div class="cv-lang">
+            <div style="background-color: #2f74c0; width: 100%;" class="cv-lang-bg"></div>
+            <span style="color: #fff;" class="cv-lang-title">.ts</span>
+          </div>
+        </div>
+        <div class="cv-section-item">
+          <div class="cv-lang">
+            <div style="background-color: #ce412b; width: 60%;" class="cv-lang-bg"></div>
+            <span style="color: #fff;" class="cv-lang-title">.rs</span>
+          </div>
+        </div>
+        <div class="cv-section-item">
+          <div class="cv-lang">
+            <div style="background-color: #08afd8; width: 50%;" class="cv-lang-bg"></div>
+            <span style="color: #fff;" class="cv-lang-title">.go</span>
+          </div>
+        </div>
+        <div class="cv-section-item">
+          <div class="cv-lang">
+            <div style="background-color: #3771a2; width: 40%;" class="cv-lang-bg"></div>
+            <span style="color: #fff;" class="cv-lang-title">.py</span>
+          </div>
+        </div>
+        <div class="cv-section-item">
+          <div class="cv-lang">
+            <div style="background-color: #f89b24; width: 30%;" class="cv-lang-bg"></div>
+            <span style="color: #fff;" class="cv-lang-title">.java</span>
+          </div>
+        </div>
+        <div class="cv-section-item">
+          <div class="cv-lang">
+            <div style="background-color: #007cc7; width: 30%;" class="cv-lang-bg"></div>
+            <span style="color: #fff;" class="cv-lang-title">.cpp</span>
+          </div>
+        </div>
+        <div class="cv-section-item">
+          <div class="cv-lang">
+            <div style="background-color: #007cc7; width: 30%;" class="cv-lang-bg"></div>
+            <span style="color: #fff;" class="cv-lang-title">.c</span>
+          </div>
+        </div>
+        <div class="cv-section-item">
+          <div class="cv-lang">
+            <div style="background-color: #a37add; width: 30%;" class="cv-lang-bg"></div>
+            <span style="color: #fff;" class="cv-lang-title">.cs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section-content">
+      <div class="cv-section-item">
+        <div class="cv-date">Oct 2024 - Present</div>
+        <h4 class="cv-title">DroneShield</h4>
+        <h5 class="cv-subtitle">Software Engineer</h5>
+      </div>
+
+      <div class="cv-section-item">
+        <div class="cv-date">Oct 2023 - Aug 2024</div>
+        <h4 class="cv-title">March &amp; Ash</h4>
+        <h5 class="cv-subtitle">Principal Software Engineer - Data</h5>
+        <div class="cv-description">
+          <p>Setup multi-cloud environment across AWS and Google Cloud. Conducted organization-wide security audit. <b>Reduced monthly cloud services costs by 30%. Reduced memory usage of key service by 1000%.</b> Built a data pipeline for processing inventory and customer service logs. Utilized LLMs to categorize customer support interactions to identify areas for improvement and show change. Leveraged LLMs to provide tailored responses via customer support channels.</p>
+        </div>
+      </div>
+
+      <div class="cv-section-item">
+        <div class="cv-date">Jan - Feb 2024</div>
+        <h4 class="cv-title">JammCard</h4>
+        <h5 class="cv-subtitle">Consultant</h5>
+        <div class="cv-description">
+          Aligned video and audio content using Dejavu algorithm. Re-wrote computationally heavy Dejavu algorithm in Rust, using SIMD instructions where possible, to improve performance. Used Computer Vision &amp; LLM to label video content and build a narrative for music videos.
+        </div>
+      </div>
+
+      <div class="cv-section-item">
+        <div class="cv-date">Jan - Oct 2023</div>
+        <h4 class="cv-title">Container Exchange Services</h4>
+        <h5 class="cv-subtitle">Senior Software Engineer - Customer Experience</h5>
+        <div class="cv-description">
+          <p>Worked with DevOps team to setup the org-wide Node infra (instrumentation and database connectivity with JDBC and Postgres to AWS Aurora) running in K8s clusters in both AWS EKS and Oracle OKE.
+          Implemented org-wide OAuth from Auth0 using OpenPolicyAgent (Go) for IDP-independent access rules achieving a unified authorization strategy with service level granularity.
+          Built event-driven, idempotent APIs in Node, Java and Go in the customer domain which integrate with Kafka for queueing, concurrency management and transparency for our data team.
+          Integrated HashiCorp Vault into GitHub actions CI/CD and Kubernetes pods to facilitate credential rotation and least-privilege service access.
+          Planned and implemented database migration strategy for zero-downtime deploys and static analysis backed integration guarantees (typed database using Prisma).</p>
+        </div>
+      </div>
+
+      <div class="cv-section-item">
+        <div class="cv-date">Dec 2019 - Jan 2023</div>
+        <h4 class="cv-title">March &amp; Ash</h4>
+        <h5 class="cv-subtitle">Principal Software Engineer - eCommerce</h5>
+        <div class="cv-description">
+          <p>Led the team responsible for moving an expanding San Diego retailer's operation online.
+          Focused on providing our mostly mobile audience with a performant, industry-leading ordering experience with our Gatsby web app and React Native app published to Google Play Store and Apple App Store.
+          Contributed to the Gatsby framework to integrate with third-party point of sale system.
+          Advocated for a rigorous automated testing approach (using Jest and Percy) of our applications to maximize reliability and visual consistency and minimize downtime.
+          Experimented with react-native-web to unify development teams.</p>
+        </div>
+      </div>
+
+      <div class="cv-section-item">
+        <div class="cv-date">Sep 2016 - Dec 2019</div>
+        <h4 class="cv-title">Sonesta Hotels &amp; Resorts</h4>
+        <h5 class="cv-subtitle">Software Engineer - Booking</h5>
+        <div class="cv-description">
+          <p>Migrated 200+ multilingual hotels from Drupal 7 to headless Drupal 8 and Gatsby.
+          Integrated SOAP and REST APIs from Guestware and SynXis for booking management and loyalty program.
+          Created an open-source client library for Guestware in JavaScript.
+          Contributed to open-source Drupal modules including an image optimizing proxy.
+          Handled userbase for over 200k customers.
+          Managed devops for team including local mock environments and Docker images.
+          Implemented and advocated for A/B tested feature development using Fastly VCL for traffic splitting.
+          Discussed A/B testing capabilities of Gatsby framework with core team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

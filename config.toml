@@ -1,0 +1,8 @@
+base_url = "https://daviddisch.com"
+output_dir = "./out"
+compile_sass = false
+generate_feeds = false
+
+[markdown]
+[markdown.highlighting]
+theme = "dracula"
