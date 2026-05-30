@@ -582,15 +582,16 @@ ul.reset-list {
   margin-top: .5rem;
 }
 
-.code-block {
+pre:has(> code[data-lang]) {
   position: relative;
   padding-top: 2rem;
 }
 
-.code-block::before {
-  content: attr(data-language);
+pre > code[data-lang]::before {
+  content: attr(data-lang);
   position: absolute;
   top: 0;
+  left: 0;
   background-color: var(--theme-light-col-acc);
   font-weight: 700;
   color: white;
@@ -598,10 +599,11 @@ ul.reset-list {
   font-size: .8rem;
 }
 
-.content .code-block {
+.content pre {
   max-width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
   font-size: .9rem;
+  white-space: pre;
 }
 
 .content {
