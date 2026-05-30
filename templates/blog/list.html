@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="page-title">Blog</h1>
+<ul class="reset-list">
+  {% for page in section.pages %}
+  <li>
+    <a class="reset-link blog-teaser" href="{{ page.permalink }}">
+      <h2 class="blog-teaser__title">{{ page.title }}</h2>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
